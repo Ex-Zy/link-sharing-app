@@ -8,17 +8,28 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
-    'plugin:prettier/recommended'
+    'plugin:prettier/recommended',
+    'prettier'
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname
+    tsconfigRootDir: __dirname,
+    sourceType: 'module',
+    ecmaVersion: 'latest'
   },
-  plugins: ['react-refresh'],
+  plugins: ['react-refresh', 'immutable', 'simple-import-sort', 'no-relative-import-paths'],
   rules: {
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
-    'prettier/prettier': ['error', { semi: false }]
+    'immutable/no-let': 'error',
+    'immutable/no-this': 'error',
+    'immutable/no-mutation': 'error',
+    'simple-import-sort/imports': 'error',
+    'simple-import-sort/exports': 'error',
+    'no-relative-import-paths/no-relative-import-paths': [
+      'error',
+      { allowSameFolder: false, rootDir: 'src', prefix: '@' }
+    ]
   }
 }

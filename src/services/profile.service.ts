@@ -1,5 +1,5 @@
-import { supabase } from '../adapters/supabase'
-import { PlatformLink, Profile } from '../types'
+import { supabase } from '@/adapters/supabase'
+import { PlatformLink, Profile } from '@/types'
 
 export const profileService = {
   async getProfile(id: string) {
