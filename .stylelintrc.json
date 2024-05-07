@@ -1,0 +1,31 @@
+{
+  "plugins": [
+    "stylelint-group-selectors",
+    "stylelint-high-performance-animation",
+    "stylelint-plugin-defensive-css",
+    "stylelint-rem-over-px"
+  ],
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-sass-guidelines",
+    "stylelint-config-clean-order/error",
+    "stylelint-prettier/recommended"
+  ],
+  "rules": {
+    "plugin/stylelint-group-selectors": true,
+    "plugin/no-low-performance-animation-properties": true,
+    "plugin/use-defensive-css": [
+      true,
+      {
+        "accidental-hover": true,
+        "background-repeat": true,
+        "custom-property-fallbacks": true,
+        "flex-wrapping": true,
+        "scroll-chaining": true,
+        "scrollbar-gutter": true,
+        "vendor-prefix-grouping": true
+      }
+    ],
+    "rem-over-px/rem-over-px": true
+  }
+}
