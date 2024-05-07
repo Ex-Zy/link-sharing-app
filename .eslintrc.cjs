@@ -1,3 +1,5 @@
+const path = require('node:path')
+
 module.exports = {
   root: true,
   env: { browser: true, es2020: true },
@@ -30,6 +32,15 @@ module.exports = {
     'no-relative-import-paths/no-relative-import-paths': [
       'error',
       { allowSameFolder: false, rootDir: 'src', prefix: '@' }
-    ]
+    ],
+    '@typescript-eslint/consistent-type-imports': 'error',
+    '@typescript-eslint/consistent-type-exports': 'error'
+  },
+  settings: {
+    'import/resolver': {
+      node: {
+        paths: [path.resolve(__dirname)]
+      }
+    }
   }
 }

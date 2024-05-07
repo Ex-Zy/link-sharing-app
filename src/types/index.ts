@@ -1,4 +1,4 @@
-import { Tables } from '@/types/generated.ts'
+import type { Tables } from '@/types/generated.ts'
 
 export interface PlatformLink {
   id: string
