@@ -26,6 +26,7 @@
         "vendor-prefix-grouping": true
       }
     ],
-    "rem-over-px/rem-over-px": true
+    "rem-over-px/rem-over-px": true,
+    "selector-max-id": 1
   }
 }
