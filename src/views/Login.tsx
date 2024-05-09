@@ -1,7 +1,9 @@
+import { AuthLayout } from '@/layouts/AuthLayout/AuthLayout.tsx'
+
 export const Login = () => {
   return (
-    <div>
-      <h1>Login</h1>
-    </div>
+    <AuthLayout>
+      <h1>Login 3123</h1>
+    </AuthLayout>
   )
 }

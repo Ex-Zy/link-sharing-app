@@ -8,12 +8,13 @@
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix",
     "format": "prettier --write . --ignore-path .gitignore",
-    "stylelint": "npx stylelint src/**/*.{css,scss} --fix",
+    "stylelint": "npx stylelint **/*.{css,scss} --fix",
     "preview": "vite preview",
     "supabase:typegen": "npx supabase gen types typescript --project-id wwjjzxjhpvcdnwfaelif > src/types/generated.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.42.7",
+    "normalize.css": "^8.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.23.0"
@@ -35,6 +36,7 @@
     "eslint-plugin-simple-import-sort": "^12.1.0",
     "postcss": "^8.4.38",
     "prettier": "^3.2.5",
+    "sass": "^1.77.0",
     "stylelint": "^16.5.0",
     "stylelint-config-clean-order": "^5.4.2",
     "stylelint-config-sass-guidelines": "^11.1.0",
