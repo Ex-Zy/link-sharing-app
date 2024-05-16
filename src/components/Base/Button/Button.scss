@@ -1,0 +1,73 @@
+.btn {
+  --button-height: 2.875rem; // 46px
+
+  @include typography($fs: 1rem, $fw: 600);
+
+  cursor: pointer;
+
+  position: relative;
+
+  display: inline-flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+
+  height: var(--button-height, 2.875rem); // 46px
+
+  border-radius: var(--radius-md, 0.5rem);
+
+  transition:
+    color var(--tr-duration, 0.3s),
+    background-color var(--tr-duration, 0.3s),
+    border-color var(--tr-duration, 0.3s),
+    box-shadow var(--tr-duration, 0.3s);
+
+  &--block {
+    width: 100%;
+  }
+
+  &--inline {
+    width: auto;
+  }
+
+  &--primary {
+    color: var(--white-color, #fff);
+    background: var(--purple-color, #633cff);
+    border: 1px solid var(--purple-color, #633cff);
+  }
+
+  &--primary:not([disabled]) {
+    @include hover {
+      background: var(--purple-color-hover, #beadff);
+      border-color: var(--purple-color-hover, #beadff);
+      box-shadow: 0 0 2rem 0 rgb(99 60 255 / 25%);
+    }
+  }
+
+  &--primary[disabled] {
+    cursor: not-allowed;
+    opacity: 0.25;
+  }
+
+  &--secondary {
+    color: var(--purple-color, #633cff);
+    background: var(--white-color, #fff);
+    border: 1px solid var(--purple-color, #633cff);
+  }
+
+  &--secondary:not([disabled]) {
+    @include hover {
+      background: var(--light-purple-color, #efebff);
+      border: 1px solid var(--purple-color, #beadff);
+    }
+  }
+
+  &--secondary[disabled] {
+    cursor: not-allowed;
+    opacity: 0.25;
+  }
+
+  &:active:not([disabled]) {
+    top: 1px;
+  }
+}
