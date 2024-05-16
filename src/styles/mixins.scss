@@ -9,6 +9,19 @@
   color: $color;
 }
 
+@mixin flex($display: flex, $wrap: nowrap, $justify: null, $align: null) {
+  display: $display;
+  flex-wrap: $wrap;
+
+  @if $justify != null {
+    justify-content: $justify;
+  }
+
+  @if $align != null {
+    align-items: $align;
+  }
+}
+
 @mixin hide-text {
   font-size: 0;
   line-height: 0;

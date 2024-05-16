@@ -6,8 +6,6 @@
 .input-field {
   --input-height: 3rem; // 48px
   --input-padding-inline: 2.75rem; // 44px
-  --input-focus-border-color: var(--purple-color, #633cff);
-  --input-placeholder-color: var(--dark-grey-color, #333);
 
   @include typography(1rem, 400, 150%, var(--dark-grey-color));
   @include size(100%, var(--input-height, 3rem)); // 48px
@@ -25,11 +23,11 @@
   transition-property: border-color, box-shadow;
 
   &::placeholder {
-    color: var(--input-placeholder-color, #333);
+    color: var(--dark-grey-color, #333);
   }
 
   &:focus:not(.input-field--error) {
-    border-color: var(--input-focus-border-color, #633cff);
+    border-color: var(--purple-color, #633cff);
     box-shadow: 0 0 2rem 0 rgb(99 60 255 / 25%);
   }
 
