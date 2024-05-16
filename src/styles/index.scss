@@ -30,3 +30,14 @@ body {
 .body-s {
   @include typography(0.75rem, 400, 150%, var(--grey-color, #737373)); // 12px
 }
+
+.link {
+  @include typography(1rem, 400, 150%, var(--purple-color, #633cff)); // 12px
+  @include transition(opacity);
+
+  @include hover {
+    opacity: 0.7;
+  }
+
+  text-decoration: none;
+}

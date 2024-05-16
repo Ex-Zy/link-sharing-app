@@ -42,6 +42,10 @@
   height: $height;
 }
 
+@mixin transition($property) {
+  transition: $property var(--tr-duration, 0.3s) ease;
+}
+
 @mixin hover {
   @media (hover: hover) {
     &:hover {

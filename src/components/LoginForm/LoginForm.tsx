@@ -1,6 +1,7 @@
 import '@/components/LoginForm/LoginForm.scss'
 
 import { useFormik } from 'formik'
+import { Link } from 'react-router-dom'
 
 import { Button } from '@/components/Base/Button/Button.tsx'
 import { FormInput } from '@/components/Base/FormInput/FormInput.tsx'
@@ -52,6 +53,12 @@ export const LoginForm = () => {
       <Button type="submit" variant="block" uiType="primary">
         Login
       </Button>
+      <p className="login-form__footer body-m">
+        Don’t have an account?{' '}
+        <Link className="link" to="">
+          Create account
+        </Link>
+      </p>
     </form>
   )
 }
