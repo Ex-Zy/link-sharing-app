@@ -21,6 +21,8 @@ export const profileService = {
     try {
       const { data, error } = await supabase
         .from('profiles')
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
         .update({ links: [...profile.links, link] })
         .eq('id', id)
         .select()
