@@ -4,6 +4,13 @@
   min-height: 100dvh;
 
   &__in {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: auto;
+  }
+
+  &__content {
+    margin-top: 3.125rem;
   }
 }

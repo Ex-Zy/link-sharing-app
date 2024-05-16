@@ -13,7 +13,7 @@ export const AuthLayout = ({ children }: Props) => {
     <div className="auth-layout">
       <div className="auth-layout__in">
         <Logo />
-        {children}
+        <div className="auth-layout__content">{children}</div>
       </div>
     </div>
   )
