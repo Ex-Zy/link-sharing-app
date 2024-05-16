@@ -1,0 +1,31 @@
+.create-account-form {
+  --form-padding: 2.5rem; // 40px
+
+  width: 29.75rem; // 476px
+  padding: var(--form-padding, 2.5rem); // 40px
+  background-color: var(--white-color, #fff);
+  border-radius: var(--radius-lg, 0.75rem); // 12px
+
+  &__title {
+    margin: 0;
+  }
+
+  &__subtitle {
+    margin-block: 0.5rem 0;
+  }
+
+  &__divider {
+    @include size(100%, 0);
+
+    margin-block: 2.5rem 0;
+  }
+
+  // set margin-top for all elements after divider
+  &__divider ~ * {
+    margin-block: 1.5rem 0;
+  }
+
+  &__footer {
+    text-align: center;
+  }
+}

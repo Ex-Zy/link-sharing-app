@@ -54,8 +54,8 @@ export const LoginForm = () => {
         Login
       </Button>
       <p className="login-form__footer body-m">
-        Don’t have an account?{' '}
-        <Link className="link" to="">
+        Don’t have an account? &nbsp;
+        <Link className="link" to="/create-account">
           Create account
         </Link>
       </p>
