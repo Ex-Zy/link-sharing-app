@@ -13,7 +13,12 @@
   ],
   "rules": {
     "plugin/stylelint-group-selectors": true,
-    "plugin/no-low-performance-animation-properties": true,
+    "plugin/no-low-performance-animation-properties": [
+      true,
+      {
+        "ignore": "paint-properties"
+      }
+    ],
     "plugin/use-defensive-css": [
       true,
       {

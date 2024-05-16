@@ -1,6 +1,32 @@
 @import url('normalize.css');
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
+  @include typography(0.75rem, 400, 150%); // 12px
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: var(--light-grey-color, #fafafa);
+}
+
+// typography
+.heading-m {
+  @include typography(2rem, 700, 150%); // 32px
+}
+
+.heading-s {
+  @include typography(1rem, 600, 150%); // 16px
+}
+
+.body-m {
+  @include typography(1rem, 400, 150%, var(--grey-color, #737373)); // 16px
+}
+
+.body-s {
+  @include typography(0.75rem, 400, 150%, var(--grey-color, #737373)); // 12px
 }

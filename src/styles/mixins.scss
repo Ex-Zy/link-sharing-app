@@ -1,0 +1,51 @@
+@mixin typography($fs: 2rem, $fw: 700, $lh: 150%, $color: var(--dark-grey-color)) {
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: $fs;
+  font-variation-settings: 'wdth' 100;
+  font-optical-sizing: auto;
+  font-weight: $fw;
+  font-style: normal;
+  line-height: $lh;
+  color: $color;
+}
+
+@mixin hide-text {
+  font-size: 0;
+  line-height: 0;
+  color: transparent;
+  text-shadow: none;
+
+  background-color: transparent;
+  border: 0;
+}
+
+@mixin vertical {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin vertical-left-offset($offset) {
+  @include vertical;
+
+  left: $offset;
+}
+
+@mixin vertical-right-offset($offset) {
+  @include vertical;
+
+  right: $offset;
+}
+
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
