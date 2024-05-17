@@ -1,23 +1,31 @@
 import '@/components/LoginForm/LoginForm.scss'
 
-import { useFormik } from 'formik'
-import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 
 import { Button } from '@/components/Base/Button/Button.tsx'
 import { FormInput } from '@/components/Base/FormInput/FormInput.tsx'
-import { validationSchema } from '@/components/LoginForm/validationSchema.ts'
+import { useForm } from '@/hooks/Login/useForm.ts'
+import { useToast } from '@/hooks/useToast.ts'
 
 export const LoginForm = () => {
-  const formik = useFormik({
-    initialValues: {
-      email: '',
-      password: ''
-    },
-    validationSchema,
-    onSubmit: (values, actions) => {
-      console.log(values, actions)
+  const { formik, loading, errorMessage, successMessage } = useForm()
+  const navigate = useNavigate()
+  const toast = useToast()
+
+  useEffect(() => {
+    if (successMessage) {
+      toast.success(successMessage, {
+        onClose() {
+          navigate('/')
+        }
+      })
     }
-  })
+    if (errorMessage) {
+      console.log(errorMessage)
+      toast.error(errorMessage)
+    }
+  }, [successMessage, errorMessage, toast, navigate])
 
   return (
     <form className="login-form" onSubmit={formik.handleSubmit}>
@@ -50,8 +58,8 @@ export const LoginForm = () => {
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
       />
-      <Button type="submit" variant="block" uiType="primary">
-        Login
+      <Button disabled={loading} type="submit" variant="block" uiType="primary">
+        {loading ? 'Loading...' : 'Login'}
       </Button>
       <p className="login-form__footer body-m">
         Don’t have an account? &nbsp;
