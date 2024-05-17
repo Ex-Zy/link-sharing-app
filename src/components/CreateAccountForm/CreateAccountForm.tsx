@@ -1,24 +1,30 @@
 import '@/components/CreateAccountForm/CreateAccountForm.scss'
 
-import { useFormik } from 'formik'
-import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 
 import { Button } from '@/components/Base/Button/Button.tsx'
 import { FormInput } from '@/components/Base/FormInput/FormInput.tsx'
-import { validationSchema } from '@/components/CreateAccountForm/validationSchema.ts'
+import { useForm } from '@/hooks/CreateAccount/useForm.ts'
+import { useToast } from '@/hooks/useToast.ts'
 
 export const CreateAccountForm = () => {
-  const formik = useFormik({
-    initialValues: {
-      email: '',
-      password: '',
-      confirmPassword: ''
-    },
-    validationSchema,
-    onSubmit: (values, actions) => {
-      console.log(values, actions)
+  const { formik, loading, successMessage, errorMessage } = useForm()
+  const navigate = useNavigate()
+  const toast = useToast()
+
+  useEffect(() => {
+    if (successMessage) {
+      toast.success(successMessage, {
+        onClose() {
+          navigate('/')
+        }
+      })
     }
-  })
+    if (errorMessage) {
+      toast.error(errorMessage)
+    }
+  }, [successMessage, errorMessage, toast, navigate])
 
   return (
     <form className="create-account-form" onSubmit={formik.handleSubmit}>
@@ -67,8 +73,8 @@ export const CreateAccountForm = () => {
         onBlur={formik.handleBlur}
       />
       <p>Password must contain at least 8 characters</p>
-      <Button type="submit" variant="block" uiType="primary">
-        Create new account
+      <Button disabled={loading} type="submit" variant="block" uiType="primary">
+        {loading ? 'Loading...' : 'Create new account'}
       </Button>
       <p className="create-account-form__footer body-m">
         Already have an account? &nbsp;
